@@ -1,0 +1,553 @@
+<!DOCTYPE>
+<style>
+.mainVisual {/*親div*/
+position: relative;/*相対配置*/
+}
+.mainVisual img {
+    width:100%;
+}
+.mainVisual p {
+  position: absolute;/*絶対配置*/
+  color: #000;/*文字は白に*/
+  top: 60%;
+  left: 10%;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 80px;
+  font-family: sans-serif;
+  }
+.wrapper {
+    margin-top:100px;
+}
+.wrapper #lend-space .lend-explain {
+    margin-top: 50px;
+}
+.wrapper #lend-space .lend-explain h2 {
+    text-align: center;
+}
+.lend-space-location-text {
+    margin-left: 5%;
+    width: 40%;
+}
+.wrapper #lend-space .lend-explain .lend-space-location-text h3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.wrapper #lend-space .lend-explain .lend-space-location-text h6 {
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+.alert p {
+    margin-left: 10%;
+}
+#lend-machine {
+    margin-top: 100px;
+}
+.wrapper #lend-machine h2 {
+    text-align: center;
+}
+
+/*丸パクリしたjQueryのCSS(L255まで)*/
+a.btn7 {
+    background: #333;
+    border-radius: 4px;
+    box-shadow: 0 2px 0px 0 rgba(0,0,0,0.25);
+    color: #ffffff;
+    display: inline-block;
+    padding: 6px 30px 6px;
+    position: relative;
+    text-decoration: none;
+    transition: all 0.1s 0s ease-out;
+    font-weight: 600;
+    letter-spacing: 0.04rem;
+}
+.no-touch a.btn7:hover {
+    background: #00a2ad;
+    box-shadow: 0px 8px 2px 0 rgba(0,0,0,0.075);
+    transform: translateY(-2px);
+    transition: all 0.25s 0s ease-out;
+}
+.no-touch a.btn7:active, a.btn7:active {
+    background: #008a93;
+    box-shadow: 0 1px 0px 0 rgba(255,255,255,0.25);
+    transform: translate3d(0,1px,0);
+    transition: all 0.025s 0s ease-out;
+}
+ul.cards7 {
+    border: none;
+    padding: 0;
+    margin-right: 0px;
+    margin-left: 15px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+li.card7 {
+    display: inline-block;
+    perspective: 1000;
+    position: relative;
+    text-align: left;
+    transition: all 0.3s 0s ease-in;
+    width: 48%;
+    z-index: 1;
+    border-radius: 2px;
+    background: #fff;
+    box-shadow: 0 0 3px 0 rgb(0 0 0 / 12%), 0 2px 3px 0 rgb(0 0 0 / 22%);
+    padding: 0;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+li.card7 img {
+    width: 100%;
+}
+li.card7 .card__image-holder {
+    background: rgba(0,0,0,0.1);
+    height: 0;
+    padding-bottom: 57%;
+    overflow: hidden;
+}
+li.card7 .card__image-holder img {
+    transition: all 0.1s 0s ease-in;
+}
+li.card7:hover > .card__image-holder img {
+    transform: scale(1.05);
+}
+li.card7 div.card-title {
+    background: #ffffff;
+    padding: 8px 18px 14px;
+    position: relative;
+    z-index: 0;
+}
+li.card7 div.card-title a.toggle-info {
+    border-radius: 32px;
+    height: 32px;
+    padding: 0;
+    position: absolute;
+    right: 16px;
+    top: 8px;
+    width: 32px;
+    margin: 0 !important;
+}
+li.card7 div.card-title a.toggle-info span {
+    background: #ffffff;
+    display: block;
+    height: 2px;
+    position: absolute;
+    top: 16px;
+    transition: all 0.15s 0s ease-out;
+    width: 12px;
+}
+li.card7 div.card-title a.toggle-info span.left {
+    right: 14px;
+    transform: rotate(45deg);
+}
+li.card7 div.card-title a.toggle-info span.right {
+    left: 14px;
+    transform: rotate(-45deg);
+}
+li.card7 div.card-title p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.05em;
+    margin: 6px 0 3px;
+    padding: 0;
+    line-height: 1.56;
+    color: #555;
+}
+li.card7 div.card-title p.card_timecategory {
+    display: flex;
+    flex-flow: row;
+    font-weight: 600;
+    font-size: 0.85rem;
+    justify-content: flex-start;
+    letter-spacing: 0.02rem;
+    color: #b5b5b5;
+    position: relative;
+}
+li.card7 div.card-title p small {
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+}
+li.card7 div.card-description {
+    padding: 0px 20px 20px;
+    position: relative;
+    font-size: 0.9rem;
+    color: #313131;
+}
+li.card7 div.card-actions {
+    box-shadow: 0 2px 0px 0 rgba(0,0,0,0.075);
+    padding: 10px 15px 15px;
+    text-align: center;
+}
+li.card7 div.card-flap {
+    background: #d9d9d9;
+    position: absolute;
+    width: 100%;
+    transform-origin: top;
+    transform: rotateX(-90deg);
+    box-shadow: 0 0 3px 0 rgb(0 0 0 / 12%), 0 2px 3px 0 rgb(0 0 0 / 22%);
+}
+li.card7 div.flap1 {
+    transition: all 0.3s 0.3s ease-out;
+    z-index: -1;
+}
+li.card7 div.flap2 {
+    transition: all 0.3s 0s ease-out;
+    z-index: -2;
+}
+ul.cards7.showing li.card7 {
+    cursor: pointer;
+    opacity: 0.6;
+    transform: scale(0.88);
+}
+.no-touch ul.cards7.showing li.card7:hover {
+    opacity: 0.94;
+    transform: scale(0.92);
+}
+li.card7.show {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+li.card7.show div.card-title a.toggle-info {
+    background: #ff6666 !important;
+}
+li.card7.show div.card-title a.toggle-info span {
+    top: 15px;
+}
+li.card7.show div.card-title a.toggle-info span.left {
+    right: 10px;
+}
+li.card7.show div.card-title a.toggle-info span.right {
+    left: 10px;
+}
+li.card7.show div.card-flap {
+    background: #ffffff;
+    transform: rotateX(0deg);
+}
+li.card7.show div.flap1 {
+    transition: all 0.3s 0s ease-out;
+}
+li.card7.show div.flap2 {
+    transition: all 0.3s 0.2s ease-out;
+}
+.card-actions a {
+    padding-right: 45px;
+    padding-left: 45px;
+    border-radius: 3px;
+    box-shadow: 0 2px 3px rgb(0 0 0 / 20%), 0 2px 3px -2px rgb(0 0 0 / 15%);
+}
+.card-actions a.btn7:hover {
+    box-shadow: 0 13px 20px -3px rgb(0 0 0 / 24%);
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transform: translateY(-3px);
+}
+.card-actions a.btn7:after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f105";
+    position: absolute;
+    right: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media screen and (max-width: 767px) {
+ul.cards7 {
+    flex-direction: column;
+}
+li.card7 {
+    width: 100%;
+}
+}
+/*パソコン用のCSS*/
+    @media screen and (min-width:481px){
+        #lend-space .flex {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+        }
+        #lend-space .lend-explain .lend-container .card img {
+            width:70%;
+            margin-left: 10%;
+        }
+    }
+
+  /*　スマホ用CSS　*/
+  @media screen and (max-width:480px){
+        /* #lend-machine .flex {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+        } */
+        .mainVisual p {
+        position: absolute;/*絶対配置*/
+        color: white;/*文字は白に*/
+        top: 60%;
+        left: 3%;
+        font-size: 40px;
+        font-family: sans-serif;
+        }
+        #lend-space .lend-container .card img {
+            width:100%;
+            margin-top: 30px;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+        .wrapper #lend-space .lend-explain {
+            margin-top: 50px;
+        }
+        #lend-machine .lend-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        #lend-machine .lend-container .content1{
+        text-align: center;
+        margin-top: 10px;
+        width: 50%;
+        /* background: #3c3c9FB1; */
+        }
+        #lend-machine .lend-container .content1 img{
+        margin-top: 10px;    
+        width:150px;
+        }
+        #lend-machine .lend-container .content2{
+        text-align: center;
+        margin-top: 10px;
+        width: 50%;
+        /* background-color: #FF0000; */
+        }
+        #lend-machine .lend-container .content2 img{
+        margin-top: 10px;
+        width:150px;
+        }
+    }
+
+</style>    
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AIMCommonsのCreativeサイト">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="noindex,nofollow">
+    <title>貸出場所や貸出機材について</title>
+    <link rel="shortcut icon" href="https://thumb.silhouette-ac.com/ab/abf62dbc4df6850b04691ae2becbbb49_t.jpeg" >
+    <link rel="stylesheet" href="・・・">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+  <header>
+  </header>
+  <main>
+        <section class="top">
+            <div class="mainVisual">
+                <img src="https://images.unsplash.com/photo-1648737119247-e93f56878edf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80">
+                <p>Creative</p> 
+            </div>
+        </section>
+        <div class="wrapper">
+            <section id="lend-space">
+                <div class="lend-explain aoyama">
+                    <h2>貸出場所</h2>
+                    <div class="flex">
+                        <div class="lend-space-location-text">
+                            <h3>青山キャンパス　2号館</h3>
+                            <h6>215室　受付/215教室前　廊下</h6>
+                            <h6>利用時間</h6>
+                            <h6>月〜金</h6>
+                            <h3>08:30 - 22:00</h3>
+                        </div>      
+                        <div class="lend-container flex">
+                            <div class="card"><img src="https://images.unsplash.com/photo-1650120152008-40a54a926bcf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"></div>
+                            <div class="card"><img src="https://images.unsplash.com/photo-1650120152008-40a54a926bcf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="lend-space">
+                <div class="lend-explain sagami">
+                    <!-- <h2>貸出場所</h2> -->
+                    <div class="flex">
+                        <div class="lend-space-location-text">
+                            <h3>相模原キャンパス　B棟</h3>
+                            <h6>B442　受付/215教室前　廊下</h6>
+                            <h6>利用時間</h6>
+                            <h6>月〜金</h6>
+                            <h3>08:30 - 22:00</h3>
+                        </div>
+                        <div class="lend-container flex">
+                            <div class="card"><img src="https://images.unsplash.com/photo-1650120152008-40a54a926bcf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"></div>
+                            <div class="card"><img src="https://images.unsplash.com/photo-1650120152008-40a54a926bcf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"></div>
+                        </div>
+                    </div>    
+                </div>    
+            </section>
+            <section class="alert"><p>*キャンパス休業期間の貸出は行なっていません。</p></section>
+            <section id="lend-machine">
+                <h2>貸出機材</h2>  
+                <ul class="cards7">
+                    <!-- card -->
+                      <li class="card7">
+                        <div class="card__image-holder"> <img class="card__image" src="https://images.unsplash.com/photo-1650120152008-40a54a926bcf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60" alt="アイキャッチ画像"> </div>
+                        <div class="card-title"> <a href="#" class="toggle-info btn7">
+                            <span class="left"></span>
+                            <span class="right"></span>
+                          </a>
+                          <p class="card_timecategory"><time class="pubdate entry-time dfont" itemprop="datePublished" datetime="2021-10-16">2021年10月16日</time></p>
+                          <p class="card_htitle">カードのタイトルカードのタイトルカードのタイトル</p>
+                        </div>
+                        <div class="card-flap flap1">
+                          <div class="card-description">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</div>
+                          <!-- <div class="card-flap flap2">
+                            <div class="card-actions"> <a href="#" class="btn7">記事を見る</a> </div>
+                          </div> -->
+                        </div>
+                      </li>
+                    <!-- card -->
+                    <!-- card -->
+                    <li class="card7">
+                        <div class="card__image-holder"> <img class="card__image" src="https://images.unsplash.com/photo-1650120152008-40a54a926bcf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60" alt="アイキャッチ画像"> </div>
+                        <div class="card-title"> <a href="#" class="toggle-info btn7">
+                            <span class="left"></span>
+                            <span class="right"></span>
+                          </a>
+                          <p class="card_timecategory"><time class="pubdate entry-time dfont" itemprop="datePublished" datetime="2021-10-16">2021年10月16日</time></p>
+                          <p class="card_htitle">カードのタイトルカードのタイトルカードのタイトル</p>
+                        </div>
+                        <div class="card-flap flap1">
+                          <div class="card-description">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</div>
+                          <!-- <div class="card-flap flap2">
+                            <div class="card-actions"> <a href="#" class="btn7">記事を見る</a> </div>
+                          </div> -->
+                        </div>
+                      </li>
+                    <!-- card -->
+                    <!-- card -->
+                    <li class="card7">
+                        <div class="card__image-holder"> <img class="card__image" src="https://images.unsplash.com/photo-1650120152008-40a54a926bcf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60" alt="アイキャッチ画像"> </div>
+                        <div class="card-title"> <a href="#" class="toggle-info btn7">
+                            <span class="left"></span>
+                            <span class="right"></span>
+                          </a>
+                          <p class="card_timecategory"><time class="pubdate entry-time dfont" itemprop="datePublished" datetime="2021-10-16">2021年10月16日</time></p>
+                          <p class="card_htitle">カードのタイトルカードのタイトルカードのタイトルカードのタイトルカードのタイトル</p>
+                        </div>
+                        <div class="card-flap flap1">
+                          <div class="card-description">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</div>
+                          <!-- <div class="card-flap flap2">
+                            <div class="card-actions"> <a href="#" class="btn7">記事を見る</a> </div>
+                          </div> -->
+                        </div>
+                      </li>
+                    <!-- card -->
+                    <!-- card -->
+                    <li class="card7">
+                        <div class="card__image-holder"> <img class="card__image" src="https://images.unsplash.com/photo-1650120152008-40a54a926bcf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60" alt="アイキャッチ画像"> </div>
+                        <div class="card-title"> <a href="#" class="toggle-info btn7">
+                            <span class="left"></span>
+                            <span class="right"></span>
+                          </a>
+                          <p class="card_timecategory"><time class="pubdate entry-time dfont" itemprop="datePublished" datetime="2021-10-16">2021年10月16日</time></p>
+                          <p class="card_htitle">カードのタイトルカードのタイトルカードのタイトルカードのタイトルカードのタイトル</p>
+                        </div>
+                        <div class="card-flap flap1">
+                          <div class="card-description">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</div>
+                          <!-- <div class="card-flap flap2">
+                            <div class="card-actions"> <a href="#" class="btn7">記事を見る</a> </div>
+                          </div> -->
+                        </div>
+                      </li>
+                    <!-- card -->
+                    <li class="card7">
+                        <div class="card__image-holder"> <img class="card__image" src="https://images.unsplash.com/photo-1650120152008-40a54a926bcf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60" alt="アイキャッチ画像"> </div>
+                        <div class="card-title"> <a href="#" class="toggle-info btn7">
+                            <span class="left"></span>
+                            <span class="right"></span>
+                          </a>
+                          <p class="card_timecategory"><time class="pubdate entry-time dfont" itemprop="datePublished" datetime="2021-10-16">2021年10月16日</time></p>
+                          <p class="card_htitle">カードのタイトルカードのタイトルカードのタイトル</p>
+                        </div>
+                        <div class="card-flap flap1">
+                          <div class="card-description">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</div>
+                          <!-- <div class="card-flap flap2">
+                            <div class="card-actions"> <a href="#" class="btn7">記事を見る</a> </div>
+                          </div> -->
+                        </div>
+                      </li>
+                    <!-- card -->
+                    <li class="card7">
+                        <div class="card__image-holder"> <img class="card__image" src="https://images.unsplash.com/photo-1650120152008-40a54a926bcf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60" alt="アイキャッチ画像"> </div>
+                        <div class="card-title"> <a href="#" class="toggle-info btn7">
+                            <span class="left"></span>
+                            <span class="right"></span>
+                          </a>
+                          <p class="card_timecategory"><time class="pubdate entry-time dfont" itemprop="datePublished" datetime="2021-10-16">2021年10月16日</time></p>
+                          <p class="card_htitle">カードのタイトルカードのタイトルカードのタイトル</p>
+                        </div>
+                        <div class="card-flap flap1">
+                          <div class="card-description">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</div>
+                          <!-- <div class="card-flap flap2">
+                            <div class="card-actions"> <a href="#" class="btn7">記事を見る</a> </div>
+                          </div> -->
+                        </div>
+                      </li>
+                    <!-- card -->
+                    </ul>
+            </section>    
+        </div> 
+  </main>    
+  </body>    
+</html>
+
+<script>
+    $(document).ready(function(){
+  var zindex = 10;
+  
+  $("li.card7").click(function(e){
+    e.preventDefault();
+
+    var isShowing = false;
+
+    if ($(this).hasClass("show")) {
+      isShowing = true
+    }
+
+    if ($("ul.cards7").hasClass("showing")) {
+      $("li.card7.show")
+        .removeClass("show");
+
+      if (isShowing) {
+        $("ul.cards7")
+          .removeClass("showing");
+      } else {
+        $(this)
+          .css({zIndex: zindex})
+          .addClass("show");
+
+      }
+
+      zindex++;
+
+    } else {
+      // no cards in view
+      $("ul.cards7")
+        .addClass("showing");
+      $(this)
+        .css({zIndex:zindex})
+        .addClass("show");
+      zindex++;
+    }
+    
+  });
+});
+
+</script>    
